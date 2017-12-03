@@ -8,6 +8,7 @@ class CommentForm extends Component {// le agregamos las caracteristicas de Comp
 
     static propTypes = {
       createComment : PropTypes.func.isRequired,
+      showComment : PropTypes.func,
     }
     static defaultComment = fromJS({// funcion que ajusta los valores por defecto
       date:'',
@@ -90,6 +91,12 @@ class CommentForm extends Component {// le agregamos las caracteristicas de Comp
         <Button
           icon = "send"
           label= "Comment"
+          onClick={this.handleCreateComment}
+          disabled={!this.isValid()}
+        />
+        <Button
+          icon = "visibility"
+          label = "ver"
           onClick={this.handleCreateComment}
           disabled={!this.isValid()}
         />

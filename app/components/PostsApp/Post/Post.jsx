@@ -54,7 +54,7 @@ class Post extends Component {
   };
 
   render() {
-    //vemos la cantodad de cometarios
+    //vemos la cantidad de cometarios
     console.log(this.state.comments);
     const { body }=  this.props;
     return (

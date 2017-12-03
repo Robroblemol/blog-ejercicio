@@ -18,6 +18,7 @@ class Post extends Component {
     comments : [],//tipo array
     commentsCount: 1,//contamos cuanto comentarios hay
   };
+  
   handleCreateComment = (comment) => {// para crear un comenario
     const commentItem = (
       <Comment

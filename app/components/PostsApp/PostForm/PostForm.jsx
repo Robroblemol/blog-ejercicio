@@ -13,6 +13,11 @@ class PostForm extends Component {
     title: '',
     body: '',
   };
+  handleShowComment = () =>{
+    console.log("entramos a la funcion mostrar commentarios");
+    //const showComment = this.state.showComment.set(
+    //                   !this.state.showComment.get());
+  }
 
   onTitleChange = (title) => {
     // this.setState({ title: title });
@@ -47,6 +52,12 @@ class PostForm extends Component {
           icon="add"
           label="Create post"
           onClick={this.handleCreatePost}
+        />
+        <Button
+          icon = "visibility"
+          label = "Ver"
+          onClick={this.handleShowComment}
+          //disabled={!this.isValid()}
         />
       </div>
     );

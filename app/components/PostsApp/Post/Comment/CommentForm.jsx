@@ -63,10 +63,11 @@ class CommentForm extends Component {// le agregamos las caracteristicas de Comp
         <div>
           <Input
             label = "Email"
-            type = "text"
+            type = "email"
             required
-            value ={this.state.commentState.get('name')}
+            value ={this.state.commentState.get('email')}
             onChange={this.handleOnChange.bind(this,'email')}
+          />
         </div>
         <div>
           <Input

@@ -15,6 +15,7 @@ class CommentForm extends Component {// le agregamos las caracteristicas de Comp
       email:'',
       country:'',
       age:'',
+      //showComment: false,
 
     });
     state = {// estaso inicial del componente
@@ -28,6 +29,12 @@ class CommentForm extends Component {// le agregamos las caracteristicas de Comp
     const commentState = this.state.commentState.set(key,value);
     this.setState({commentState});// ajustamo el valor inicial al nuevo comentario
   }
+  // handleShowComment = () =>{
+  //   console.log("entramos a la funcion mostrar commentarios");
+  //   this.setState({showComment: !this.state.showComment});
+  //   console.log(this.state.showComment);
+  //   //                   !this.state.showComment.get());
+  // }
   handleCreateComment = () => {
     const { createComment } = this.props; // <<< No sé que estoy haciendo aqui.
     // creo que se declara como una funcion de props que recibe comentarios

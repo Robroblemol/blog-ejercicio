@@ -16,9 +16,16 @@ class Post extends Component {
   state = {
     className: '',// tipo string
     comments : [],//tipo array
-    commentsCount: 1,//contamos cuanto comentarios hay
+    commentsCount: 0,//contamos cuanto comentarios hay
+    showComment: false,
   };
-  
+  handleShowComment = () =>{
+     console.log("entramos a la funcion mostrar commentarios");
+     this.setState({showComment: !this.state.showComment});
+     console.log(this.state.showComment);
+     //                   !this.state.showComment.get());
+   }
+
   handleCreateComment = (comment) => {// para crear un comenario
     const commentItem = (
       <Comment
@@ -66,11 +73,25 @@ class Post extends Component {
         <div>
           {body || (<About />)}
         </div>
+        {
+          this.state.showComment ?
+          this.state.comments
+          : null
+        }
+        <div>
+          <Button
+            icon = "visibility"
+            label = "Ver"
+            onClick={this.handleShowComment}
+            disabled={this.state.commentsCount < 1}
+          />
+        </div>
+
         <CommentForm
           createComment={this.handleCreateComment}
         />
-        {this.state.comments}
-        {}
+        {/* {this.state.comments} */}
+
       </div>
     );
 

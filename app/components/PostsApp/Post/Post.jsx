@@ -18,12 +18,16 @@ class Post extends Component {
     comments : [],//tipo array
     commentsCount: 0,//contamos cuanto comentarios hay
     showComment: false,
+    flagAddComment: false,
   };
   handleShowComment = () =>{
      console.log("entramos a la funcion mostrar commentarios");
      this.setState({showComment: !this.state.showComment});
      console.log(this.state.showComment);
      //                   !this.state.showComment.get());
+   }
+   handleShowFromComment = () =>{
+     this.setState({flagAddComment: !this.state.flagAddComment});
    }
 
   handleCreateComment = (comment) => {// para crear un comenario
@@ -44,13 +48,12 @@ class Post extends Component {
     const comments = this.state.comments.concat(commentItem);
     // donde le decimos que tome el valor del estado inicial
     // de .comments y lo concatene con el nuevo item comentario
-
+    this.setState({flagAddComment: !this.state.flagAddComment});
     this.setState({
       comments,
       commentsCount: this.state.commentsCount+1,
     });
   };
-
   handleOnClick = () => {
     this.setState(
       { // si el className es igual al condition1 entonce style.condition2
@@ -93,14 +96,18 @@ class Post extends Component {
             <Button
               icon = "add"
               label = "comentario"
-              onClick={this.handleShowComment}
+              onClick={this.handleShowFromComment}
               //disabled={this.state.commentsCount < 1 }
             />
         </div>
-
-        <CommentForm
+        {this.state.flagAddComment ?
+          <CommentForm
+            createComment={this.handleCreateComment}
+          /> : null
+        }
+        {/* <CommentForm
           createComment={this.handleCreateComment}
-        />
+        /> */}
         {/* {this.state.comments} */}
 
       </div>

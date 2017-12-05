@@ -78,12 +78,17 @@ class Post extends Component {
           this.state.comments
           : null
         }
+        {
+          this.state.commentsCount < 1 ?
+          'This post has not comments'
+          : null
+        }
         <div>
           <Button
             icon = "visibility"
             label = "Ver"
             onClick={this.handleShowComment}
-            disabled={this.state.commentsCount < 1}
+            disabled={this.state.commentsCount < 1 }
           />
         </div>
 

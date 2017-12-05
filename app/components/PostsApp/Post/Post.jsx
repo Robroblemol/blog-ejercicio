@@ -90,6 +90,12 @@ class Post extends Component {
             onClick={this.handleShowComment}
             disabled={this.state.commentsCount < 1 }
           />
+            <Button
+              icon = "add"
+              label = "comentario"
+              onClick={this.handleShowComment}
+              //disabled={this.state.commentsCount < 1 }
+            />
         </div>
 
         <CommentForm
